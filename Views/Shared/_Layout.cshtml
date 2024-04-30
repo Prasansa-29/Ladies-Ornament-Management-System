@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ladies Ornaments</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <style>
+        
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+            .navbar-brand:hover {
+                color: #fff;
+            }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #fff;
+            }
+
+        .btn-register, .btn-login {
+            font-weight: bold;
+        }
+
+        .advertisement-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .advertisement-item {
+            margin-bottom: 20px;
+            max-width: 400px; /* Set max-width to match placeholder width */
+            max-height: 200px; /* Set max-height to match placeholder height */
+            overflow: auto; /* Enable scroll if image exceeds container dimensions */
+            border: 1px solid #ccc; /* Optional: Add border for visual clarity */
+            border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+        }
+
+            .advertisement-item img {
+                max-width: 100%; /* Ensure image fits within container */
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Ensure image is centered horizontally */
+                margin: auto; /* Ensure image is centered vertically */
+            }
+
+        .feature {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+            .feature i {
+                font-size: 4em;
+                color: #007bff;
+            }
+
+            .feature h3 {
+                margin-top: 20px;
+            }
+    </style>
+</head>
+ <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Ladies Ornament</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" id="register" href="@Url.Page("/Identity/Account/Register", new { area = "Identity" })">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" id="login" href="@Url.Page("/Identity/Account/Login", new { area = "Identity" })">Login</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" /> 
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="advertisement-container">
+        <h2 class="mb-4">Featured Products</h2>
+        <div class="row">
+            <div class="col-md-4 advertisement-item">
+                <img src="https://imgs7.luluandsky.com/catalog/product/d/2/d238241k__screenshot_jun2e.jpeg" alt="Product ">
+                <h4 class="mt-2">Purple satin Backless Maxi Dress</h4>
+                <p>Goes with every party </p>
+            </div>
+            <div class="col-md-4 advertisement-item">
+                <img src="https://lydiaelisemillen.com/wp-content/uploads/2023/06/DSC0156-min-1048x1571.jpg" alt="Product 2">
+                <h4 class="mt-2">Floral Dress for Summer</h4>
+                <p>Makes you fall in love with summer </p>
+            </div>
+            <div class="col-md-4 advertisement-item">
+                <img src="https://assets.ajio.com/medias/sys_master/root/20240304/04lR/65e5b31b05ac7d77bb9468ef/-473Wx593H-443026826-pink-MODEL.jpg" alt="Product 3">
+                <h4 class="mt-2">Women Smocked Regular Fit Jumpsuit</h4>
+                <p>Casual fit for anywhere wear</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Quality Product</h3>
+                    <p>We offer high-quality products to ensure customer satisfaction.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Shipping</h3>
+                    <p>Our fast shipping ensures that you receive your order promptly.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Service</h3>
+                    <p>Our dedicated customer service team is always ready to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Ladies Ornament  <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"> </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
